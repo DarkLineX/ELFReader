@@ -54,5 +54,7 @@ dependencies {
     implementation("pub.devrel:easypermissions:3.0.0")
 
     implementation("net.fornwall:jelf:0.9.0")
+    implementation("io.github.tutorialsandroid:filepicker:9.2.5")
+
 
 }
