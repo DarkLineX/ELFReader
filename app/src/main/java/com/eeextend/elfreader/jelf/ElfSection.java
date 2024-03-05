@@ -1,5 +1,7 @@
 package com.eeextend.elfreader.jelf;
 
+import androidx.annotation.NonNull;
+
 public class ElfSection {
     public final ElfSectionHeader header;
     protected final ElfParser parser;
@@ -25,4 +27,10 @@ public class ElfSection {
         return result;
     }
 
+    @NonNull
+    @Override
+    public String toString() {
+        return "header = " + header.toString() +"\n" +
+                "parser = " + parser.toString();
+    }
 }

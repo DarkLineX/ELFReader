@@ -11,7 +11,7 @@ android {
         applicationId = "com.eeextend.elfreader"
         minSdk = 28
         targetSdk = 33
-        versionCode = 2
+        versionCode = 3
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -52,7 +52,7 @@ dependencies {
     implementation("com.blankj:utilcodex:1.31.1")
 
     //implementation("pub.devrel:easypermissions:3.0.0")
-    implementation("net.fornwall:jelf:0.9.0")
+    //implementation("net.fornwall:jelf:0.9.0")
     implementation("com.github.getActivity:XXPermissions:18.6")
 
 }

@@ -201,7 +201,6 @@ public class ElfSectionHeader {
     ElfSectionHeader(final ElfParser parser, long offset) {
         this.elfHeader = parser.elfFile;
         parser.seek(offset);
-
         sh_name = parser.readInt();
         sh_type = parser.readInt();
         sh_flags = parser.readIntOrLong();

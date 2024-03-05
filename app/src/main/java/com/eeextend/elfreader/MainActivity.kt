@@ -1,6 +1,5 @@
 package com.eeextend.elfreader
 
-import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.os.Build
@@ -9,7 +8,6 @@ import android.os.Handler
 import android.widget.Button
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.os.HandlerCompat.postDelayed
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.blankj.utilcode.util.ToastUtils
@@ -17,8 +15,6 @@ import com.hjq.permissions.OnPermissionCallback
 import com.hjq.permissions.Permission
 import com.hjq.permissions.XXPermissions
 import com.xuexiang.xui.adapter.recyclerview.DividerItemDecoration
-import com.xuexiang.xui.utils.XToastUtils.toast
-import java.lang.String.format
 
 
 class MainActivity : AppCompatActivity() {
@@ -38,20 +34,16 @@ class MainActivity : AppCompatActivity() {
             } }
 
     private fun openSystemFile(){
-        val intent = Intent(Intent.ACTION_GET_CONTENT);
+        val intent = Intent(Intent.ACTION_GET_CONTENT)
         intent.type = "*/*"
-        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        intent.addCategory(Intent.CATEGORY_OPENABLE)
         startActivity.launch(Intent.createChooser(intent, "select a elf file"))
     }
-
-
-
 
     private lateinit var recycler: RecyclerView
     private lateinit var button: Button
     private lateinit var adapter: SimpleRecyclerAdapter
 
-    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -62,7 +54,7 @@ class MainActivity : AppCompatActivity() {
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) {
                 delayMillis = 2000
             }
-            Handler().postDelayed( Runnable  {
+            Handler().postDelayed({
                 runPermissions()
             }, delayMillis);
         }
@@ -78,10 +70,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun runPermissions() {
-        XXPermissions.with(this@MainActivity) // 适配分区存储应该这样写
+        XXPermissions.with(this@MainActivity)
             .permission(Permission.MANAGE_EXTERNAL_STORAGE)
             .interceptor(PermissionInterceptor())
-            .request(OnPermissionCallback { permissions, allGranted ->
+            .request(OnPermissionCallback { _, allGranted ->
                 if (!allGranted) {
                     return@OnPermissionCallback
                 }

@@ -200,6 +200,9 @@ public final class ElfFile {
      */
     public final byte es_abiversion;
 
+    public final byte[] e_ident; // Elf32_Half
+
+
     /**
      * Identifies the object file type. One of the ET_* constants in the class.
      */
@@ -520,23 +523,23 @@ public final class ElfFile {
     ElfFile(BackingFile backingFile) throws ElfException {
         final ElfParser parser = new ElfParser(this, backingFile);
 
-        byte[] ident = new byte[16];
-        int bytesRead = parser.read(ident);
-        if (bytesRead != ident.length)
-            throw new ElfException("Error reading elf header (read " + bytesRead + "bytes - expected to read " + ident.length + "bytes)");
+        e_ident = new byte[16];
+        int bytesRead = parser.read(e_ident);
+        if (bytesRead != e_ident.length)
+            throw new ElfException("Error reading elf header (read " + bytesRead + "bytes - expected to read " + e_ident.length + "bytes)");
 
-        if (!(0x7f == ident[0] && 'E' == ident[1] && 'L' == ident[2] && 'F' == ident[3]))
+        if (!(0x7f == e_ident[0] && 'E' == e_ident[1] && 'L' == e_ident[2] && 'F' == e_ident[3]))
             throw new ElfException("Bad magic number for file");
 
-        ei_class = ident[4];
+        ei_class = e_ident[4];
         if (!(ei_class == CLASS_32 || ei_class == CLASS_64))
             throw new ElfException("Invalid object size class: " + ei_class);
-        ei_data = ident[5];
+        ei_data = e_ident[5];
         if (!(ei_data == DATA_LSB || ei_data == DATA_MSB)) throw new ElfException("Invalid encoding: " + ei_data);
-        ei_version = ident[6];
+        ei_version = e_ident[6];
         if (ei_version != 1) throw new ElfException("Invalid elf version: " + ei_version);
-        ei_osabi = ident[7]; // EI_OSABI, target operating system ABI
-        es_abiversion = ident[8]; // EI_ABIVERSION, ABI version. Linux kernel (after at least 2.6) has no definition of it.
+        ei_osabi = e_ident[7]; // EI_OSABI, target operating system ABI
+        es_abiversion = e_ident[8]; // EI_ABIVERSION, ABI version. Linux kernel (after at least 2.6) has no definition of it.
         // ident[9-15] // EI_PAD, currently unused.
 
         e_type = parser.readShort();
@@ -560,6 +563,7 @@ public final class ElfFile {
             throw new ElfException("e_shstrndx is SHN_XINDEX(0xffff), which is not supported yet"
                     + " (the actual index of the section name string table section is contained in the sh_link field of the section header at index 0)");
         }
+
 
         sections = MemoizedObject.uncheckedArray(e_shnum);
         for (int i = 0; i < e_shnum; i++) {
