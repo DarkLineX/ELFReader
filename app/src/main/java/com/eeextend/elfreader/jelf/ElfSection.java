@@ -1,4 +1,4 @@
-package net.fornwall.jelf;
+package com.eeextend.elfreader.jelf;
 
 public class ElfSection {
     public final ElfSectionHeader header;

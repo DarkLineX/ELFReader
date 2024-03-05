@@ -1,4 +1,4 @@
-package net.fornwall.jelf;
+package com.eeextend.elfreader.jelf;
 
 /** Package internal class used for parsing ELF files. */
 class ElfParser {

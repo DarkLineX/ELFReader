@@ -15,6 +15,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "ElfReader"
+rootProject.name = "ELFReader"
 include(":app")
  

@@ -11,7 +11,7 @@ android {
         applicationId = "com.eeextend.elfreader"
         minSdk = 28
         targetSdk = 33
-        versionCode = 1
+        versionCode = 2
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -46,15 +46,13 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
     implementation("com.github.xuexiangjys:XUI:1.2.1")
-    implementation("androidx.recyclerview:recyclerview:1.3.0")
+    implementation("androidx.recyclerview:recyclerview:1.3.1")
     implementation("com.google.android.material:material:1.8.0")
     implementation("com.github.bumptech.glide:glide:4.16.0")
     implementation("com.blankj:utilcodex:1.31.1")
 
-    implementation("pub.devrel:easypermissions:3.0.0")
-
+    //implementation("pub.devrel:easypermissions:3.0.0")
     implementation("net.fornwall:jelf:0.9.0")
-    implementation("io.github.tutorialsandroid:filepicker:9.2.5")
-
+    implementation("com.github.getActivity:XXPermissions:18.6")
 
 }

@@ -1,4 +1,4 @@
-package net.fornwall.jelf;
+package com.eeextend.elfreader.jelf;
 
 import java.util.ArrayList;
 import java.util.List;

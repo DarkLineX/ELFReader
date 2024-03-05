@@ -1,4 +1,4 @@
-package net.fornwall.jelf;
+package com.eeextend.elfreader.jelf;
 
 /**
  * An entry in the {@link ElfSymbolTableSection}, which holds information needed to locate and relocate a program's symbolic definitions and references.

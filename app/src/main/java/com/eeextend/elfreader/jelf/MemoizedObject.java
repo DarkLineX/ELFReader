@@ -1,4 +1,4 @@
-package net.fornwall.jelf;
+package com.eeextend.elfreader.jelf;
 
 /**
  * A memoized object. Override {@link #computeValue} in subclasses; call {@link #getValue} in using code.

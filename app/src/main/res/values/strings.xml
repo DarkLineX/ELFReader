@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">ElfReader</string>
+    <string name="app_name">ELFReader</string>
     <string name="button_1">Select a Elf file</string>
 </resources>

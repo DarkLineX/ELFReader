@@ -1,4 +1,4 @@
-package net.fornwall.jelf;
+package com.eeextend.elfreader.jelf;
 
 public final class ElfRelocationSection extends ElfSection {
 	public final ElfRelocation[] relocations;

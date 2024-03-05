@@ -1,4 +1,4 @@
-package net.fornwall.jelf;
+package com.eeextend.elfreader.jelf;
 
 /**
  * An ELF section containing a hash table for lookup of dynamic symbols.

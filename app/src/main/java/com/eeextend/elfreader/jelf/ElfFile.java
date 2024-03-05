@@ -1,4 +1,4 @@
-package net.fornwall.jelf;
+package com.eeextend.elfreader.jelf;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;

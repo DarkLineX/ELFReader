@@ -1,4 +1,4 @@
-package net.fornwall.jelf;
+package com.eeextend.elfreader.jelf;
 
 /**
  * A relocation connects a symbolic reference with its actual definition.

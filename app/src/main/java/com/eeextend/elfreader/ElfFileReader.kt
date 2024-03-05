@@ -1,13 +1,8 @@
 package com.eeextend.elfreader
 
-import android.R.attr.path
 import com.blankj.utilcode.util.FileUtils
 import com.blankj.utilcode.util.ToastUtils
-import net.fornwall.jelf.ElfFile
 import java.io.File
-import java.io.FileInputStream
-import java.io.IOException
-import java.lang.Exception
 
 
 class ElfFileReader(fileUrlPath: String?) {

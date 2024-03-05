@@ -1,4 +1,4 @@
-package net.fornwall.jelf;
+package com.eeextend.elfreader.jelf;
 
 /**
  * String table sections hold null-terminated character sequences, commonly called strings.

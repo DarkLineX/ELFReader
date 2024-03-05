@@ -1,4 +1,4 @@
-package net.fornwall.jelf;
+package com.eeextend.elfreader.jelf;
 
 /**
  * Relocation is the process of connecting symbolic references with symbolic definitions.

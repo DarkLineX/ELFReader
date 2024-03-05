@@ -1,4 +1,4 @@
-package net.fornwall.jelf;
+package com.eeextend.elfreader.jelf;
 
 /**
  * Class corresponding to the Elf32_Shdr/Elf64_Shdr struct.
