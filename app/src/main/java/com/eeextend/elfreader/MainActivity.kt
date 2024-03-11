@@ -1,5 +1,6 @@
 package com.eeextend.elfreader
 
+import android.Manifest
 import android.app.Activity
 import android.content.Intent
 import android.os.Build
@@ -7,6 +8,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.widget.Button
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -44,6 +46,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var button: Button
     private lateinit var adapter: SimpleRecyclerAdapter
 
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -60,7 +63,6 @@ class MainActivity : AppCompatActivity() {
         }
         recycler.layoutManager = LinearLayoutManager(this)
         recycler.addItemDecoration(DividerItemDecoration(this,1))
-
     }
 
     private fun readFile(urlPath:String?){
@@ -69,9 +71,11 @@ class MainActivity : AppCompatActivity() {
         recycler.adapter = adapter
     }
 
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     private fun runPermissions() {
         XXPermissions.with(this@MainActivity)
-            .permission(Permission.MANAGE_EXTERNAL_STORAGE)
+            .permission(listOf(Manifest.permission.READ_MEDIA_IMAGES, Manifest.permission.READ_MEDIA_VIDEO,
+                Manifest.permission.READ_MEDIA_AUDIO))
             .interceptor(PermissionInterceptor())
             .request(OnPermissionCallback { _, allGranted ->
                 if (!allGranted) {

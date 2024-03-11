@@ -11,8 +11,8 @@ android {
         applicationId = "com.eeextend.elfreader"
         minSdk = 28
         targetSdk = 33
-        versionCode = 3
-        versionName = "1.0"
+        versionCode = 4
+        versionName = "1.01"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
