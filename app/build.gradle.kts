@@ -5,14 +5,15 @@ plugins {
 
 android {
     namespace = "com.eeextend.elfreader"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.eeextend.elfreader"
         minSdk = 28
-        targetSdk = 33
-        versionCode = 4
-        versionName = "1.01"
+        //noinspection EditedTargetSdkVersion
+        targetSdk = 34
+        versionCode = 5
+        versionName = "1.02"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
